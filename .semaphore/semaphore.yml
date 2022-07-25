@@ -43,9 +43,6 @@ blocks:
             - cache store traefik-mesh-img-$SEMAPHORE_GIT_BRANCH-$SEMAPHORE_WORKFLOW_ID traefik-mesh-img.tar
 
   - name: Unit Tests
-    matrix:
-    - env_var: ARCH
-      values: [ "arm64", "amd64" ]
     run:
       when: "branch =~ '.*' OR pull_request =~ '.*'"
     task:
@@ -54,6 +51,9 @@ blocks:
           - cache restore
       jobs:
         - name: Unit Tests
+          matrix:
+          - env_var: ARCH
+            values: [ "arm64", "amd64" ]
           commands:
             - make local-test
 

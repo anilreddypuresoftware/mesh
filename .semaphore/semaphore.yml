@@ -15,12 +15,10 @@ fail_fast:
     when: "branch != 'master'"
 
 global_job_config:
-  secrets:
-  - name: docker-hub
   prologue:
     commands:
       - curl -sSfL https://raw.githubusercontent.com/ldez/semgo/master/godownloader.sh | sudo sh -s -- -b "/usr/local/bin"
-      - sudo semgo go1.17
+      - sudo semgo go1.18
       - echo "Anil@1234" | docker login -u "9490808583" --password-stdin
       - checkout
 

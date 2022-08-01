@@ -52,8 +52,8 @@ blocks:
       jobs:
         - name: Unit Tests
           matrix:
-          - env_var: ARCH
-            values: [ "arm64", "amd64" ]
+            - env_var: ARCH
+              values: ["arm64","amd64"]
           commands:
             - make local-test
 
@@ -70,26 +70,26 @@ blocks:
       jobs:
         - name: ACL Enabled Suite
           matrix:
-          - env_var: ARCH
-            values: [ "arm64", "amd64" ]
+            - env_var: ARCH
+              values: ["arm64","amd64"]
           commands:
             - "make test-integration-nobuild TESTFLAGS=\"-check.f ACLEnabledSuite\""
         - name: ACL Disabled Suite
           matrix:
-          - env_var: ARCH
-            values: [ "arm64", "amd64" ]
+            - env_var: ARCH
+              values: ["arm64","amd64"]
           commands:
             - "make test-integration-nobuild TESTFLAGS=\"-check.f ACLDisabledSuite\""
         - name: CoreDNS Suite
           matrix:
-          - env_var: ARCH
-            values: [ "arm64", "amd64" ]
+            - env_var: ARCH
+              values: ["arm64","amd64"]
           commands:
             - "make test-integration-nobuild TESTFLAGS=\"-check.f CoreDNSSuite\""
         - name: KubeDNS Suite
           matrix:
-          - env_var: ARCH
-            values: [ "arm64", "amd64" ]
+            - env_var: ARCH
+              values: ["arm64","amd64"]
           commands:
             - "make test-integration-nobuild TESTFLAGS=\"-check.f KubeDNSSuite\""
 

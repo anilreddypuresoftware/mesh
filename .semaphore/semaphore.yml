@@ -56,6 +56,7 @@ blocks:
               values: ["arm64","amd64"]
           commands:
             - make local-test
+              uname -a
 
   - name: Integration Tests
     run:
@@ -92,6 +93,7 @@ blocks:
               values: ["arm64","amd64"]
           commands:
             - "make test-integration-nobuild TESTFLAGS=\"-check.f KubeDNSSuite\""
+               uname -a
 
   - name: Release
     run:
